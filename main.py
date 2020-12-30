@@ -1,5 +1,5 @@
 
-from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
+from spotipy.oauth2 import SpotifyOAuth
 import spotipy
 import sys
 import codecs
@@ -8,7 +8,6 @@ scope = "user-library-read playlist-modify-public"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
 def create_playlist(name):
-    scope = "playlist-modify-public"
     user_id = sp.me()['id']
     playlist = sp.user_playlist_create(user_id, name)
     return playlist
